@@ -73,7 +73,8 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <img src="icone.png" alt="" srcset=""  class='logo'>
-        <a class="navbar-brand" href="#">é <strong>DIVINA!</strong></a>
+        <a class="navbar-brand" href="#"><strong>Olá, <span id="saudacao"></span></strong></a>
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -93,7 +94,7 @@
                 <a href="https://www.instagram.com/divinalopes2023" target="_blank">
                   <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://wa.me/5511995131056?Text=Ol%C3%A1%20Divina%21%20por%20favor%2C%20gostaria%20de%20um%20suporte%20para%20a%20aquisi%C3%A7%C3%A3o%20de%20um%20im%C3%B3vel." target="_blank">
+                <a href="https://wa.me/5511987355411?Text=Ol%C3%A1%20Divina%21%20por%20favor%2C%20gostaria%20de%20um%20suporte%20para%20a%20aquisi%C3%A7%C3%A3o%20de%20um%20im%C3%B3vel." target="_blank">
                   <i class="fab fa-whatsapp"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/edna-alves-cruz-04570570/" target="_blank">
@@ -136,7 +137,7 @@
        
     </ul>
 
-    <div style="width: 70px; position: fixed;bottom: 75px;right: 9px;z-index: 9999999;"><a href="https://wa.me/5511995131056?Text=Ol%C3%A1%20Divina%21%20por%20favor%2C%20gostaria%20de%20um%20suporte%20para%20a%20aquisi%C3%A7%C3%A3o%20de%20um%20im%C3%B3vel." target="_blank"><img src="whats.png" style="width:100%;"></a></div>
+    <div style="width: 70px; position: fixed;bottom: 75px;right: 9px;z-index: 9999999;"><a href="https://wa.me/5511987355411?Text=Ol%C3%A1%20Divina%21%20por%20favor%2C%20gostaria%20de%20um%20suporte%20para%20a%20aquisi%C3%A7%C3%A3o%20de%20um%20im%C3%B3vel." target="_blank"><img src="whats.png" style="width:100%;"></a></div>
 
 </footer>
   
@@ -159,6 +160,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
             crossorigin="anonymous">
+    </script>
+
+    <script>
+      
+      d = new Date();
+      hour = d.getHours();
+      
+      if(hour < 6){
+          document.getElementById('saudacao').innerText = "boa noite!";
+      }else if(hour < 12){
+          document.getElementById('saudacao').innerText = "bom dia!";
+      }else if(hour < 18){
+          document.getElementById('saudacao').innerText = "boa tarde!";
+      }else{
+          document.getElementById('saudacao').innerText = "boa noite!";
+      };
+
     </script>
 
 
