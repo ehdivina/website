@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divina - Corretora Imobiliária</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+          crossorigin="anonymous">
+
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+    <style>
+
+        #rodape {
+            font-size: 1rem;
+            font-family: Futura, "Open Sans", sans-serif;
+            color: #ffffff;
+            
+            width: 100%;
+            height: 65px;
+            /* padding: 8px; */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            text-align: start;
+            
+          }
+
+        .fa-heart {
+            margin-right: 5px; /* Adiciona espaço à direita do ícone */
+            font-size: 14px; /* Define o tamanho do ícone */
+          }
+
+        .logo {
+            width: 100px; /* Largura fixa */
+            height: 75px; /* Altura fixa */
+          }
+
+          .social-icons a {
+            text-decoration: none; /* Remove o sublinhado */
+            color: inherit; /* Os links agora herdam a cor do elemento pai */
+          }
+          
+          .social-icons i {
+            font-size: 24px; /* Tamanho dos ícones */
+            color: #000; /* Exemplo de cor padrão para ícones, substitua conforme necessário */
+          }
+          
+          /* Cores específicas para cada ícone de rede social */
+          .social-icons .fa-instagram { color: #C13584; }
+          .social-icons .fa-whatsapp { color: #25D366; }
+          .social-icons .fa-linkedin { color: #0077b5; }
+          
+
+    </style>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="icone.png">
+
+</head>
+<body>
+    
+<div id="wrapper">
+
+
+<!--Nav-->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <img src="icone.png" alt="" srcset=""  class='logo'>
+        <a class="navbar-brand" href="#">é <strong>DIVINA!</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contatos</a>
+            </li>
+
+            <div class="social-icons container-fluid">
+                <a href="https://www.instagram.com/divinalopes2023" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/5511995131056?Text=Ol%C3%A1%20Divina%21%20por%20favor%2C%20gostaria%20de%20um%20suporte%20para%20a%20aquisi%C3%A7%C3%A3o%20de%20um%20im%C3%B3vel." target="_blank">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/edna-alves-cruz-04570570/" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </div>
+          
+            </div>
+          
+        </div>
+        </div>
+    </nav>
+
+  <!--fim do Nav-->
+
+  
+  
+</div> <!-- div wrapper -->
+
+<div class="container-fluid">
+                
+    <form id="searchForm" class="d-flex" role="search">
+        <input class="form-control me-2"  type="text" id="searchInput" placeholder="Encontre aqui seu imóvel!">
+        <input type="submit" value="Buscar" class="btn btn-outline-danger" >
+    </form>
+</div>
+
+
+
+<footer class="footer mt-auto py-3 bg-light" id="rodape">
+            
+    <ul>
+        
+        <li>
+            <span class="text-muted"><strong> 2023/2024 | é DIVINA! </strong> - Corretora Imobiliária:<strong>  Edna  </strong> Alves da Cruz - CRECI/SP nº 269.205 </span>
+            <span class="text-muted"><i class="fas fa-heart" style="color: red;"></i><strong> Associada Lopes </strong> </span>
+        </li>
+
+
+       
+    </ul>
+
+    
+
+</footer>
+  
+
+    <script>
+        document.getElementById('searchForm').onsubmit = function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+        var searchKeyword = document.getElementById('searchInput').value;
+        var baseURL = 'https://www.lopes.com.br/busca/venda/br/sp/sao-paulo/';
+        var searchURL = baseURL + encodeURIComponent(searchKeyword);
+        window.open(searchURL, '_blank'); // Abre a URL em uma nova janela/aba
+        
+        // Limpa a caixa de busca e mantém o foco nela
+        document.getElementById('searchInput').value = '';
+        document.getElementById('searchInput').focus();
+        };
+    </script>
+        
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+            crossorigin="anonymous">
+    </script>
+
+
+</body>
+</html>
+
