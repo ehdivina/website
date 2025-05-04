@@ -164,14 +164,12 @@
       <input type="submit" value="Buscar" class="btn btn-outline-danger">
     </form>
   
-    <!-- iframe para exibir resultados via AllOrigins -->
     <iframe
       id="resultsFrame"
       style="width:100%; height:600px; border:none; margin-top:1rem;"
       sandbox="allow-scripts allow-same-origin">
     </iframe>
   </div>
-        
 
 
 
@@ -251,20 +249,33 @@
 
 
 <script>
-    document.getElementById('searchForm').onsubmit = function(event) {
-      event.preventDefault();
-      const query = document.getElementById('searchInput').value;
-      const targetURL = 'https://www.lopes.com.br/busca/venda/br/sp/sao-paulo/' 
-                        + encodeURIComponent(query);
-      // AllOrigins raw endpoint para contornar CORS e X-Frame-Options :contentReference[oaicite:0]{index=0}
-      const proxyURL = 'https://api.allorigins.win/raw?url=' 
-                       + encodeURIComponent(targetURL);  // RFC3986 :contentReference[oaicite:1]{index=1}
+    document.getElementById('searchForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const q = encodeURIComponent(
+        'https://www.lopes.com.br/busca/venda/br/sp/sao-paulo/' +
+        document.getElementById('searchInput').value
+      );
+      const proxy = 'https://api.allorigins.win/raw?url=' + q;
   
-      const frame = document.getElementById('resultsFrame');
-      frame.src = proxyURL;
+      try {
+        const res = await fetch(proxy);
+        let html = await res.text();
   
-      document.getElementById('searchInput').value = '';
-      document.getElementById('searchInput').focus();
+        // Insere <base> logo dentro de <head> para corrigir caminhos relativos :contentReference[oaicite:0]{index=0}
+        const base = `<base href="https://www.lopes.com.br/">`;
+        html = html.replace(/<head[^>]*>/i, match => match + base);
+  
+        // Carrega o HTML ajustado no iframe
+        const frame = document.getElementById('resultsFrame');
+        frame.srcdoc = html;
+  
+      } catch (err) {
+        console.error(err);
+        alert('Falha ao carregar resultados.');
+      }
+  
+      this.reset();
+      this.searchInput.focus();
     };
   </script>
 
