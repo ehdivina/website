@@ -141,14 +141,13 @@
 </div> <!-- div wrapper -->
 
 
-
-<div class="container-fluid">
+<!-- <div class="container-fluid">
                 
     <form id="searchForm" class="d-flex" role="search">
         <input class="form-control me-2"  type="text" id="searchInput" placeholder="Encontre aqui seu imóvel!">
         <input type="submit" value="Buscar" class="btn btn-outline-danger" >
     </form>
-</div>
+</div>  -->
 <!-- 
 <div class="card">
     <div class="card-header">
@@ -158,6 +157,20 @@
     
     </div>
   </div> -->
+
+    <div class="container-fluid">
+  <form id="searchForm" class="d-flex" role="search">
+    <input class="form-control me-2" type="text" id="searchInput" placeholder="Encontre aqui seu imóvel!">
+    <input type="submit" value="Buscar" class="btn btn-outline-danger">
+  </form>
+        
+  <!-- iframe para carregar resultados -->
+  <iframe id="resultsFrame"
+          style="width:100%; height:600px; border:none; margin-top:1rem;"
+          sandbox="allow-scripts allow-same-origin">
+  </iframe>
+</div>
+
 
 
 
@@ -236,17 +249,18 @@
 
     <script>
         document.getElementById('searchForm').onsubmit = function(event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
-        var searchKeyword = document.getElementById('searchInput').value;
-        var baseURL = 'https://www.lopes.com.br/busca/venda/br/sp/sao-paulo/';
-        var searchURL = baseURL + encodeURIComponent(searchKeyword);
-        window.open(searchURL, '_blank'); // Abre a URL em uma nova janela/aba
-        
-        // Limpa a caixa de busca e mantém o foco nela
-        document.getElementById('searchInput').value = '';
-        document.getElementById('searchInput').focus();
-        };
-    </script>
+  event.preventDefault();
+  var searchKeyword = document.getElementById('searchInput').value;
+  var baseURL = 'https://www.lopes.com.br/busca/venda/br/sp/sao-paulo/';
+  var searchURL = baseURL + encodeURIComponent(searchKeyword);
+
+  var frame = document.getElementById('resultsFrame');
+  frame.src = searchURL;             // carrega a URL no iframe
+  frame.focus();                     // opcional: dá foco ao iframe
+
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchInput').focus();
+};
         
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
